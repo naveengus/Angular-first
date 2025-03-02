@@ -1,0 +1,163 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 p-2 form-p">
+      <h3 class="my-3 text-center">Project Forms</h3>
+      <form [formGroup]="projectForm">
+        <div class="mb-3">
+          <label class="form-label">Project Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="projectName"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Description:</label>
+          <textarea
+            class="form-control"
+            formControlName="description"
+            required
+          ></textarea>
+        </div>
+
+        <div class="mb-3" formArrayName="Technologies">
+          <label class="form-label">Technologies:</label>
+          <div *ngFor="let tech of Technologies.controls; let i = index">
+            <input
+              type="text"
+              class="form-control d-inline-block w-75 my-2"
+              [formControlName]="i"
+            />
+            <button
+              type="button"
+              class="btn btn-danger btn-sm"
+              (click)="removeTechnology(i)"
+            >
+              Remove
+            </button>
+          </div>
+          <br />
+          <button
+            type="button"
+            class="btn btn-sm btn-light mt-2"
+            (click)="addTechnology()"
+          >
+            + Add Technology
+          </button>
+        </div>
+        <!-- 
+        <div class="mb-3" formArrayName="Achievements">
+          <label class="form-label">Achievements:</label>
+          <div *ngFor="let achievement of Achievements.controls; let i = index">
+            <input
+              type="text"
+              class="form-control d-inline-block w-75"
+              [formControlName]="i"
+            />
+            <button
+              type="button"
+              class="btn btn-danger btn-sm"
+              (click)="removeAchievement(i)"
+            >
+              Remove
+            </button>
+          </div>
+          <br />
+          <button
+            type="button"
+            class="btn btn-sm btn-light mt-2"
+            (click)="addAchievement()"
+          >
+            + Add Achievement
+          </button>
+        </div> -->
+
+        <div class="mb-3" formArrayName="teamMembers">
+          <label class="form-label">Team Members:</label>
+          <div *ngFor="let member of teamMembers.controls; let i = index">
+            <input
+              type="text"
+              class="form-control d-inline-block w-75"
+              [formControlName]="i"
+            />
+            <button
+              type="button"
+              class="btn btn-danger btn-sm"
+              (click)="removeTeamMember(i)"
+            >
+              Remove
+            </button>
+          </div>
+          <br />
+          <button
+            type="button"
+            class="btn btn-sm btn-light mt-2"
+            (click)="addTeamMember()"
+          >
+            + Add Team Member
+          </button>
+        </div>
+
+        <!-- Project Links -->
+        <div class="mb-3" formArrayName="projectsLink">
+          <label class="form-label">Project Links:</label>
+          <div *ngFor="let link of projectsLink.controls; let i = index">
+            <input
+              type="text"
+              class="form-control d-inline-block w-75"
+              [formControlName]="i"
+            />
+            <button
+              type="button"
+              class="btn btn-danger btn-sm"
+              (click)="removeProjectLink(i)"
+            >
+              Remove
+            </button>
+          </div>
+          <br />
+          <button
+            type="button"
+            class="btn btn-sm btn-light mt-2"
+            (click)="addProjectLink()"
+          >
+            + Add Project Link
+          </button>
+        </div>
+
+        <button type="button" class="btn btn-success mt-3" (click)="onSubmit()">
+          Submit Form
+        </button>
+      </form>
+    </div>
+
+    <div class="col-6 table-p">
+      <h3 class="my-3 text-center">Project Dashboard</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Project Name</th>
+            <th>Description</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of projectList; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ item.projectName }}</td>
+            <td>{{ item.description }}</td>
+            <td>
+              <button class="btn btn-success btn-sm" (click)="onView(item.id)">
+                View
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="container my-5"></div>

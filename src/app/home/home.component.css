@@ -1,0 +1,20 @@
+.container {
+  margin-top: 50px;
+}
+.container h3 {
+  color: rgb(94, 93, 93);
+}
+.form-p {
+  border: 1px solid rgb(94, 93, 93);
+  border-radius: 35px;
+  /* margin-right: 20px; */
+}
+.form-p form {
+  padding: 30px;
+}
+.table-p {
+  /* margin-top: 20px; */
+  padding-left: 80px;
+}
+.table {
+}
