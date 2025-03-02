@@ -18,3 +18,13 @@
 }
 .table {
 }
+
+@media only screen and (max-width: 500px) {
+  .form-r {
+    margin: 10px;
+  }
+  .table-p {
+    margin-top: 20px;
+    padding-left: 0px;
+  }
+}

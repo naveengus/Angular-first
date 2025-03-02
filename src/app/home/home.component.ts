@@ -33,20 +33,14 @@ export class HomeComponent implements OnInit {
       projectName: ['', Validators.required],
       description: ['', Validators.required],
       Technologies: this.fb.array([]),
-      // Achievements: this.fb.array([]),
       teamMembers: this.fb.array([]),
       projectsLink: this.fb.array([]),
     });
   }
 
-  // Getters for FormArray
   get Technologies(): FormArray {
     return this.projectForm.get('Technologies') as FormArray;
   }
-
-  // get Achievements(): FormArray {
-  //   return this.projectForm.get('Achievements') as FormArray;
-  // }
 
   get teamMembers(): FormArray {
     return this.projectForm.get('teamMembers') as FormArray;
@@ -56,7 +50,6 @@ export class HomeComponent implements OnInit {
     return this.projectForm.get('projectsLink') as FormArray;
   }
 
-  // Methods to add and remove form fields dynamically
   addField(array: FormArray) {
     array.push(this.fb.control('', Validators.required));
   }
@@ -71,13 +64,6 @@ export class HomeComponent implements OnInit {
   removeTechnology(index: number) {
     this.removeField(this.Technologies, index);
   }
-
-  // addAchievement() {
-  //   this.addField(this.Achievements);
-  // }
-  // removeAchievement(index: number) {
-  //   this.removeField(this.Achievements, index);
-  // }
 
   addTeamMember() {
     this.addField(this.teamMembers);
@@ -116,10 +102,7 @@ export class HomeComponent implements OnInit {
           alert('Project created successfully');
           this.projectList.push(res);
           this.projectForm.reset();
-
-          // Reset form arrays
           this.Technologies.clear();
-          // this.Achievements.clear();
           this.teamMembers.clear();
           this.projectsLink.clear();
         },
@@ -127,9 +110,6 @@ export class HomeComponent implements OnInit {
           console.error('Error submitting form:', err);
         },
       });
-
-      // this.http
-      //   .post('http://localhost:3000/createProject', this.projectForm.value)
     }
   }
 }

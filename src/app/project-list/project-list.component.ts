@@ -8,10 +8,9 @@ import { ConfirmDialogComponent } from '../components/confirm-dialog/confirm-dia
 
 @Component({
   selector: 'app-project-list',
-  standalone: true, // If using standalone components
-  imports: [CommonModule], // Add necessary modules if required
+  imports: [CommonModule],
   templateUrl: './project-list.component.html',
-  styleUrls: ['./project-list.component.css'], // ✅ FIXED
+  styleUrls: ['./project-list.component.css'],
 })
 export class ProjectListComponent implements OnInit {
   project: any = {};
@@ -54,7 +53,7 @@ export class ProjectListComponent implements OnInit {
         this.projectService.deleteProject(id).subscribe({
           next: () => {
             alert('Project deleted successfully');
-            this.router.navigate(['/']); // Redirect to home or project list
+            this.router.navigate(['/']);
           },
           error: (err) => {
             console.error('Error deleting project:', err);

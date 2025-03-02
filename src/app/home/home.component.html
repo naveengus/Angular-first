@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row">
-    <div class="col-6 p-2 form-p">
+  <div class="row form-r">
+    <div class="col-12 col-md-6 p-2 form-p">
       <h3 class="my-3 text-center">Project Forms</h3>
       <form [formGroup]="projectForm">
         <div class="mb-3">
@@ -47,32 +47,6 @@
             + Add Technology
           </button>
         </div>
-        <!-- 
-        <div class="mb-3" formArrayName="Achievements">
-          <label class="form-label">Achievements:</label>
-          <div *ngFor="let achievement of Achievements.controls; let i = index">
-            <input
-              type="text"
-              class="form-control d-inline-block w-75"
-              [formControlName]="i"
-            />
-            <button
-              type="button"
-              class="btn btn-danger btn-sm"
-              (click)="removeAchievement(i)"
-            >
-              Remove
-            </button>
-          </div>
-          <br />
-          <button
-            type="button"
-            class="btn btn-sm btn-light mt-2"
-            (click)="addAchievement()"
-          >
-            + Add Achievement
-          </button>
-        </div> -->
 
         <div class="mb-3" formArrayName="teamMembers">
           <label class="form-label">Team Members:</label>
@@ -100,7 +74,6 @@
           </button>
         </div>
 
-        <!-- Project Links -->
         <div class="mb-3" formArrayName="projectsLink">
           <label class="form-label">Project Links:</label>
           <div *ngFor="let link of projectsLink.controls; let i = index">
@@ -133,7 +106,7 @@
       </form>
     </div>
 
-    <div class="col-6 table-p">
+    <div class="col-12 col-md-6 table-p">
       <h3 class="my-3 text-center">Project Dashboard</h3>
       <table class="table table-striped">
         <thead>
